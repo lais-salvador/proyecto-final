@@ -1,8 +1,8 @@
 package com.example.app_proyecto_final.presentation.common
 
-import android.media.Image
-import androidx.compose.foundation.Image
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -27,10 +27,11 @@ fun PrimaryInput(label: String, icon: Int) {
         onValueChange = { text = it },
         label = { Text(label) },
         leadingIcon = {
-            Image(
+            Icon(
                 painterResource(id = icon),
                 contentDescription = "AppLogo",
-                modifier = Modifier.alpha(0.5f)
+                modifier = Modifier.alpha(0.5f),
+                tint = MaterialTheme.colorScheme.primary
             )
         }
     )
