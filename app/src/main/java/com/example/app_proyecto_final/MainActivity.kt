@@ -7,7 +7,6 @@ import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.app_proyecto_final.navigation.NavigationGraph
-import com.example.app_proyecto_final.presentation.login.LoginScreen
 import com.example.app_proyecto_final.ui.theme.AppTheme
 
 class MainActivity : ComponentActivity() {

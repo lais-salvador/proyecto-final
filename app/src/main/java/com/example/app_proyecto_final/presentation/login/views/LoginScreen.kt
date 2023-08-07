@@ -1,4 +1,4 @@
-package com.example.app_proyecto_final.presentation.login
+package com.example.app_proyecto_final.presentation.login.views
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
