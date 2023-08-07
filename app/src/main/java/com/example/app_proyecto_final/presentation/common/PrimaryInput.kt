@@ -23,13 +23,14 @@ fun PrimaryInput(label: String, icon: Int) {
         mutableStateOf("")
     }
     OutlinedTextField(
+        maxLines = 1,
         value = text,
         onValueChange = { text = it },
         label = { Text(label) },
         leadingIcon = {
             Icon(
                 painterResource(id = icon),
-                contentDescription = "AppLogo",
+                contentDescription = "Input icon",
                 modifier = Modifier.alpha(0.5f),
                 tint = MaterialTheme.colorScheme.primary
             )
