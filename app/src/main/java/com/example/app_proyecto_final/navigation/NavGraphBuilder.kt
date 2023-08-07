@@ -7,5 +7,12 @@ import com.example.app_proyecto_final.presentation.login.LoginScreen
 
 fun NavGraphBuilder.addLoginScreen(navController: NavController){
     composable(Screen.LoginScreen.route){
+        LoginScreen(
+            onLoginSuccess = { navController.navigate(Screen.ListScreen.route) },
+        )
     }
+}
+
+fun NavGraphBuilder.addListScreen(navController: NavController){
+    composable(Screen.ListScreen.route){}
 }

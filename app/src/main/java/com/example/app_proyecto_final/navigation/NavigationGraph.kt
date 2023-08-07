@@ -13,5 +13,6 @@ fun NavigationGraph(){
         startDestination = Screen.LoginScreen.route
     ){
         addLoginScreen(navController)
+        addListScreen(navController)
     }
 }
