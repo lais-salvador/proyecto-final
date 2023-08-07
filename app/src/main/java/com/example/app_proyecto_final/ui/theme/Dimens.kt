@@ -12,6 +12,21 @@ object Dimens {
     val PaddingNormal: Dp
         @Composable get() = dimensionResource(R.dimen.padding_normal)
 
+    val CardElevation: Dp
+        @Composable get() = dimensionResource(R.dimen.card_elevation)
+
+    val CardSideMargin: Dp
+        @Composable get() = dimensionResource(R.dimen.card_side_margin)
+
+    val CardBottomMargin: Dp
+        @Composable get() = dimensionResource(R.dimen.card_bottom_margin)
+
+    val listItemImageHeight: Dp
+        @Composable get() = dimensionResource(R.dimen.lis_item_image_height)
+
+    val headerMargin: Dp
+        @Composable get() = dimensionResource(R.dimen.header_margin)
+
     val PaddingLarge: Dp
         @Composable get() = dimensionResource(R.dimen.padding_large)
 }
