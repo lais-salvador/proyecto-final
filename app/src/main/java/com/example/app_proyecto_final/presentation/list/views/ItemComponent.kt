@@ -69,7 +69,7 @@ fun ItemComponent(product: ProductModel ,onDetailClick: () -> Unit) {
                 overflow = TextOverflow.Ellipsis
             )
             Text(
-                text = product.price.toString(),
+                text = product.price,
                 maxLines = 1,
             )
         }
