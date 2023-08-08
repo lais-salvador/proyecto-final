@@ -24,6 +24,9 @@ object Dimens {
     val CardBottomMargin: Dp
         @Composable get() = dimensionResource(R.dimen.card_bottom_margin)
 
+    val CardDetailHeight: Dp
+        @Composable get() = dimensionResource(R.dimen.card_detail_height)
+
     val CardWidth: Dp
         @Composable get() = dimensionResource(R.dimen.card_width)
 

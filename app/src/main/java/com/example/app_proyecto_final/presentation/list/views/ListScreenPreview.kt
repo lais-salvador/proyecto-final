@@ -5,5 +5,5 @@ import androidx.compose.ui.tooling.preview.Preview
 @Preview(showBackground = true)
 @Composable
 fun ListScreenPreview(){
-    ListScreen()
+    ListScreen(onItemClick = {})
 }

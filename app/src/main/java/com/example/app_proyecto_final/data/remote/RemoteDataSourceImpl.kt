@@ -7,4 +7,5 @@ class RemoteDataSourceImpl(
     private val productApi: ProductApi
 ): RemoteDataSource {
     override suspend fun getProductList(): List<ProductDto> = productApi.getProductList()
+    override suspend fun getProductById(id: String): ProductDto = productApi.getProductById(id)
 }

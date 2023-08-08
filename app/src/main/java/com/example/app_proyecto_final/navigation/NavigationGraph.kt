@@ -12,6 +12,7 @@ fun NavigationGraph(){
         navController = navController,
         startDestination = Screen.ListScreen.route
     ){
-        addListScreen()
+        addListScreen(navController)
+        addDetailScreen()
     }
 }

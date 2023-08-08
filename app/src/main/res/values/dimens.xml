@@ -11,6 +11,8 @@
     <dimen name="card_corner_radius">12dp</dimen>
     <dimen name="card_width">150dp</dimen>
     <dimen name="card_height">170dp</dimen>
+    <dimen name="card_detail_height">300dp</dimen>
+
     <dimen name="list_item_image_height">180dp</dimen>
 
     <dimen name="header_margin">24dp</dimen>

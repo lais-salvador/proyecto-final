@@ -14,4 +14,8 @@ class ProductRepositoryImpl(
             it.toProductModel()
         }
     }
+
+    override suspend fun getProductById(id: String): ProductModel {
+        return remoteDataSource.getProductById(id).toProductModel()
+    }
 }

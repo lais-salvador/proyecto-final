@@ -32,9 +32,12 @@ import com.example.app_proyecto_final.ui.theme.Dimens
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun ItemComponent(product: ProductModel ,onDetailClick: () -> Unit) {
+fun ItemComponent(
+    product: ProductModel,
+    onItemClick: (() -> Unit)? = null
+) {
     ElevatedCard(
-        onClick = onDetailClick,
+        onClick = { onItemClick?.invoke() },
         modifier = Modifier
             .padding(horizontal = Dimens.CardSideMargin)
             .padding(bottom = Dimens.CardBottomMargin),

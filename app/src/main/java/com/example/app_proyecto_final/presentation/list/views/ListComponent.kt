@@ -19,7 +19,9 @@ import com.example.app_proyecto_final.ui.theme.Dimens
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun ListComponent(productList: List<ProductModel>, onDetailClick: () -> Unit) {
+fun ListComponent(
+    productList: List<ProductModel>,
+    onItemClick: (String) -> Unit) {
     Scaffold(
         topBar = {
             TopAppBar(
@@ -42,7 +44,9 @@ fun ListComponent(productList: List<ProductModel>, onDetailClick: () -> Unit) {
                 items = productList,
                 key = { it.id }
             ) { it ->
-                ItemComponent(it, onDetailClick)
+                ItemComponent(it){
+                    onItemClick.invoke(it.id)
+                }
             }
         }
     }

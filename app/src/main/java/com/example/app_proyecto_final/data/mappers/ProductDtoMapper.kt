@@ -9,7 +9,7 @@ import java.text.DecimalFormat
 import kotlin.math.roundToLong
 
 fun ProductDto.toProductModel() = ProductModel(
-    id = id ?: 0,
+    id = id?.toString() ?: "",
     title = title ?: "",
     description = description ?: "",
     image = image ?: "",

@@ -10,6 +10,7 @@ import org.koin.androidx.compose.koinViewModel
 @Composable
 fun ListScreen(
     listViewModel: ListViewModel = koinViewModel(),
+    onItemClick: (String) -> Unit
 ) {
     val state = listViewModel.productListFlow.collectAsStateWithLifecycle()
 
@@ -17,7 +18,7 @@ fun ListScreen(
         is ListState.ProductList -> {
             ListComponent(
                 productList = (state.value as ListState.ProductList).productList,
-                onDetailClick = {}
+                onItemClick = onItemClick
             )
         }
         is ListState.Idle -> {}

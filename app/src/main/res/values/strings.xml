@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">app-proyecto-final</string>
     <string name="list_screen_title">Productos</string>
+    <string name="detail_screen_title">Detalle producto</string>
 
 </resources>
