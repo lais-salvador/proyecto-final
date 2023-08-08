@@ -1,7 +1,10 @@
 package com.example.app_proyecto_final.presentation.detail.views
 
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.res.stringResource
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.example.app_proyecto_final.R
+import com.example.app_proyecto_final.presentation.common.ErrorComponent
 import com.example.app_proyecto_final.presentation.common.ProgressIndicatorComponent
 import com.example.app_proyecto_final.presentation.detail.DetailState
 import com.example.app_proyecto_final.presentation.detail.DetailViewModel
@@ -28,6 +31,13 @@ fun DetailScreen(
         is DetailState.Idle -> {}
         is DetailState.Loading -> {
             ProgressIndicatorComponent()
+        }
+        is DetailState.Error -> {
+            ErrorComponent(
+                onClick = {detailViewModel.getProductData(id)},
+                error = stringResource(id = R.string.error
+                )
+            )
         }
     }
 }

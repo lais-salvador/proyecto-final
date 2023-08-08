@@ -5,5 +5,6 @@ import com.example.app_proyecto_final.domain.model.ProductModel
 sealed class ListState {
     object Idle : ListState()
     object Loading : ListState()
+    object Error: ListState()
     data class ProductList(val productList: List<ProductModel>) : ListState()
 }

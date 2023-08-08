@@ -71,6 +71,7 @@ fun ItemComponent(
                 fontWeight = FontWeight.Bold,
                 overflow = TextOverflow.Ellipsis
             )
+
             Text(
                 text = product.price,
                 maxLines = 1,

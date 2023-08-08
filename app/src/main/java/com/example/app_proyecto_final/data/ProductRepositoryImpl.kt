@@ -10,9 +10,11 @@ class ProductRepositoryImpl(
     private val localDataSource: LocalDataSource
 ): ProductRepository {
     override suspend fun getProductList(): List<ProductModel> {
-        return remoteDataSource.getProductList().map {
-            it.toProductModel()
-        }
+        var productList = remoteDataSource.getProductList()
+
+        return if(productList.isNotEmpty())
+            productList.map { it.toProductModel() }
+        else emptyList()
     }
 
     override suspend fun getProductById(id: String): ProductModel {
