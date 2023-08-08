@@ -1,4 +1,32 @@
 package com.example.app_proyecto_final.presentation.list
 
-class ListViewModel {
+import android.util.Log
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.example.app_proyecto_final.domain.usecase.GetProductListUseCase
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+
+class ListViewModel(
+    private val getProductListUseCase: GetProductListUseCase
+): ViewModel() {
+
+    private var _productListFlow =  MutableStateFlow<ListState>(ListState.Idle)
+    val productListFlow: StateFlow<ListState> = _productListFlow
+
+    init {
+        getData()
+    }
+
+    private fun getData() {
+        viewModelScope.launch {
+            withContext(Dispatchers.IO) {
+                val result = getProductListUseCase.invoke()
+                _productListFlow.emit(ListState.ProductList(result))
+            }
+        }
+    }
 }

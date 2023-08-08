@@ -10,9 +10,8 @@ fun NavigationGraph(){
 
     NavHost(
         navController = navController,
-        startDestination = Screen.LoginScreen.route
+        startDestination = Screen.ListScreen.route
     ){
-        addLoginScreen(navController)
-        addListScreen(navController)
+        addListScreen()
     }
 }
