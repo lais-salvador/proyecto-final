@@ -2,6 +2,7 @@ package com.example.app_proyecto_final.presentation.detail.views
 
 import android.widget.ScrollView
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -26,13 +27,18 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.semantics
+import androidx.compose.ui.semantics.stateDescription
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
+import androidx.compose.ui.viewinterop.AndroidView
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import coil.size.Size
 import com.example.app_proyecto_final.R
 import com.example.app_proyecto_final.domain.model.ProductModel
+import com.example.app_proyecto_final.presentation.detail.customViews.CategoryTagComponent
 import com.example.app_proyecto_final.ui.theme.Dimens
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -100,6 +106,19 @@ fun DetailComponent(
                 text = product.price,
                 fontWeight = FontWeight.Bold,
                 fontSize = 22.sp
+            )
+
+            AndroidView(
+                modifier = Modifier
+                    .semantics {
+                        contentDescription = ""
+                        stateDescription = ""
+                    },
+                factory = { context ->
+                    CategoryTagComponent(context).apply {
+                        this.setCategoryText(product.category)
+                    }
+                }
             )
 
             Spacer(modifier = Modifier.height(Dimens.PaddingNormal))
