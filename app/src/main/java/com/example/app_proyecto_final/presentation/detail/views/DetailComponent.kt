@@ -35,7 +35,8 @@ import com.example.app_proyecto_final.ui.theme.Dimens
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun DetailComponent(
-    product: ProductModel
+    product: ProductModel,
+    onBack: () -> Unit
 ) {
     Scaffold(
         topBar = {
@@ -45,7 +46,7 @@ fun DetailComponent(
                 },
                 modifier = Modifier.statusBarsPadding(),
                 navigationIcon = {
-                    IconButton(onClick = {}) {
+                    IconButton(onClick = onBack) {
                         Icon(
                             Icons.Filled.ArrowBack,
                             contentDescription = null

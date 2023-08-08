@@ -15,12 +15,14 @@ fun NavGraphBuilder.addListScreen(navController: NavController){
     }
 }
 
-fun NavGraphBuilder.addDetailScreen() {
+fun NavGraphBuilder.addDetailScreen(navController: NavController) {
     composable(
         route = Screen.DetailScreen.route + "/{productId}",
         arguments = Screen.DetailScreen.arguments
     ) { navBackStackEntry ->
         val id = navBackStackEntry.arguments?.getString("productId") ?: ""
-        DetailScreen(id)
+        DetailScreen(id = id) {
+            navController.popBackStack()
+        }
     }
 }
