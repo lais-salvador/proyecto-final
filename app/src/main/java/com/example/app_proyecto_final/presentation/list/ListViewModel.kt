@@ -24,6 +24,7 @@ class ListViewModel(
     private fun getData() {
         viewModelScope.launch {
             withContext(Dispatchers.IO) {
+                _productListFlow.emit(ListState.Loading)
                 val result = getProductListUseCase.invoke()
                 _productListFlow.emit(ListState.ProductList(result))
             }

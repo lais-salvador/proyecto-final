@@ -1,5 +1,6 @@
 package com.example.app_proyecto_final.presentation.detail.views
 
+import android.widget.ScrollView
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -7,6 +8,8 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.statusBarsPadding
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material3.CardDefaults
@@ -62,8 +65,8 @@ fun DetailComponent(
                 .padding(horizontal = Dimens.PaddingNormal)
                 .padding(vertical = Dimens.headerMargin)
                 .fillMaxSize()
-                .background(MaterialTheme.colorScheme.background),
-
+                .background(MaterialTheme.colorScheme.background)
+                .verticalScroll(rememberScrollState()),
         ){
             Text(
                 text = product.title,
@@ -98,7 +101,7 @@ fun DetailComponent(
                 fontWeight = FontWeight.Bold,
                 fontSize = 22.sp
             )
-            
+
             Spacer(modifier = Modifier.height(Dimens.PaddingNormal))
 
             Text(

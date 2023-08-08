@@ -15,7 +15,7 @@ class DetailViewModel(
     private val getProductByIdUseCase: GetProductByIdUseCase
 ): ViewModel() {
 
-    private var _productFlow =  MutableStateFlow<DetailState>(DetailState.Idle)
+    private var _productFlow =  MutableStateFlow<DetailState>(DetailState.Loading)
     val productFlow: StateFlow<DetailState> = _productFlow
 
      fun getProductData(id: String) {
