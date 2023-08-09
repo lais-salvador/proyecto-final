@@ -23,7 +23,10 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.focus.FocusRequester
+import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
@@ -40,7 +43,9 @@ import com.example.app_proyecto_final.R
 import com.example.app_proyecto_final.domain.model.ProductModel
 import com.example.app_proyecto_final.presentation.detail.customViews.CategoryTagComponent
 import com.example.app_proyecto_final.ui.theme.Dimens
+import kotlinx.coroutines.job
 
+val requester = FocusRequester()
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun DetailComponent(
@@ -96,8 +101,10 @@ fun DetailComponent(
                         .data(product.image)
                         .size(Size.ORIGINAL)
                         .build(),
-                    contentDescription = product.title,
-                    modifier = Modifier.fillMaxSize(),
+                    contentDescription = stringResource(id =  R.string.detail_image_cotent_description, product.title),
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .focusRequester(focusRequester = requester),
                     contentScale =  ContentScale.Fit,
                 )
             }
@@ -111,8 +118,7 @@ fun DetailComponent(
             AndroidView(
                 modifier = Modifier
                     .semantics {
-                        contentDescription = ""
-                        stateDescription = ""
+                        contentDescription = "Categoría producto, ${product.category}"
                     },
                 factory = { context ->
                     CategoryTagComponent(context).apply {
@@ -126,6 +132,12 @@ fun DetailComponent(
             Text(
                 text = product.description,
             )
+        }
+    }
+
+    LaunchedEffect(Unit) {
+        this.coroutineContext.job.invokeOnCompletion {
+            requester.requestFocus()
         }
     }
 }

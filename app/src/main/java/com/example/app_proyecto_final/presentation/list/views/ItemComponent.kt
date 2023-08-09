@@ -20,6 +20,9 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
@@ -27,6 +30,7 @@ import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import coil.size.Size
+import com.example.app_proyecto_final.R
 import com.example.app_proyecto_final.domain.model.ProductModel
 import com.example.app_proyecto_final.ui.theme.Dimens
 
@@ -40,9 +44,11 @@ fun ItemComponent(
         onClick = { onItemClick?.invoke() },
         modifier = Modifier
             .padding(horizontal = Dimens.CardSideMargin)
-            .padding(bottom = Dimens.CardBottomMargin),
-        elevation = CardDefaults.cardElevation(
-            defaultElevation = Dimens.CardElevation)
+            .padding(bottom = Dimens.CardBottomMargin)
+            .semantics {
+                contentDescription = "Producto, ${product.title}"
+            },
+        elevation = CardDefaults.cardElevation(defaultElevation = Dimens.CardElevation),
         ) {
 
         Row(

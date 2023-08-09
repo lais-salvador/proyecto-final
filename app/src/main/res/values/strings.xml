@@ -4,5 +4,8 @@
     <string name="detail_screen_title">Detalle producto</string>
     <string name="error">Ha habido un error al cargar la lista de productos</string>
     <string name="reload">Volver a cargar</string>
+    <string name="category_tag_content_description">Categoría del producto, %s</string>
+    <string name="detail_image_content_description">Imagen del producto, %s</string>
+    <string name="card_content_description">Imagen del producto, %s</string>
 
 </resources>
