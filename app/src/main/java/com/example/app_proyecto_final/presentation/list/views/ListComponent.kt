@@ -52,24 +52,20 @@ fun ListComponent(
             )
         }
     ) { padding ->
-        Box(
-            modifier = Modifier.padding(padding)
-        ){
-            LazyVerticalGrid(
-                columns = GridCells.Fixed(2),
-                modifier = Modifier.padding(padding),
-                contentPadding = PaddingValues(
-                    horizontal = Dimens.CardSideMargin,
-                    vertical = Dimens.headerMargin
-                )
+        LazyVerticalGrid(
+            columns = GridCells.Fixed(2),
+            modifier = Modifier.padding(padding),
+            contentPadding = PaddingValues(
+                horizontal = Dimens.CardSideMargin,
+                vertical = Dimens.headerMargin
+            )
+        ) {
+            items(
+                items = productList,
+                key = { it.id }
             ) {
-                items(
-                    items = productList,
-                    key = { it.id }
-                ) {
-                    ItemComponent(it){
-                        onItemClick.invoke(it.id)
-                    }
+                ItemComponent(it){
+                    onItemClick.invoke(it.id)
                 }
             }
         }

@@ -2,8 +2,6 @@ package com.example.app_proyecto_final.utils
 
 import com.example.app_proyecto_final.data.remote.dto.ProductDto
 import com.example.app_proyecto_final.data.remote.dto.RatingDto
-import com.example.app_proyecto_final.domain.model.ProductModel
-import com.example.app_proyecto_final.domain.model.RatingModel
 
 class ProductDtoTestDataBuilder {
     var id = 0

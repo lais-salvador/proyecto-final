@@ -1,10 +1,14 @@
 package com.example.app_proyecto_final.di
 
+import android.content.Context
+import androidx.room.Room
 import com.example.app_proyecto_final.data.ProductApi
 import com.example.app_proyecto_final.data.ProductRepository
 import com.example.app_proyecto_final.data.ProductRepositoryImpl
 import com.example.app_proyecto_final.data.local.LocalDataSource
 import com.example.app_proyecto_final.data.local.LocalDataSourceImpl
+import com.example.app_proyecto_final.data.local.ProductDao
+import com.example.app_proyecto_final.data.local.ProductDataBase
 import com.example.app_proyecto_final.data.remote.RemoteDataSource
 import com.example.app_proyecto_final.data.remote.RemoteDataSourceImpl
 import com.squareup.moshi.Moshi
@@ -41,12 +45,30 @@ val DataModule = module{
 
     single<RemoteDataSource> { RemoteDataSourceImpl(get()) }
 
-    single<LocalDataSource> { LocalDataSourceImpl() }
+    single<LocalDataSource> { LocalDataSourceImpl(get()) }
 
     single<ProductApi> {
         getProductApi(get())
     }
+
+    single {
+        getDatabase(get())
+    }
+
+    single {
+        providesProductDao(get())
+    }
+
 }
 
 private fun getProductApi(retrofit: Retrofit) =
     retrofit.create(ProductApi::class.java)
+
+private fun getDatabase(context: Context) : ProductDataBase =
+    Room.databaseBuilder(
+        context,
+        ProductDataBase::class.java, "product-db"
+    ).build()
+
+private fun providesProductDao(db: ProductDataBase) : ProductDao =
+    db.productLocalDao()

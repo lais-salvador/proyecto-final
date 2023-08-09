@@ -1,7 +1,6 @@
 package com.example.app_proyecto_final.utils
 
 import com.example.app_proyecto_final.domain.model.ProductModel
-import com.example.app_proyecto_final.domain.model.RatingModel
 
 class ProductModelTestDataBuilder {
     var id = ""
@@ -10,7 +9,6 @@ class ProductModelTestDataBuilder {
     var price = ""
     var category  = ""
     var image = ""
-    var rating: RatingModel = RatingModel(0.0,0)
     var numElements: Int = 1
 
 
@@ -57,7 +55,6 @@ class ProductModelTestDataBuilder {
                     category = category,
                     price = price,
                     image = image,
-                    rating = rating
                 )
             )
         }
@@ -72,7 +69,6 @@ class ProductModelTestDataBuilder {
             category = category,
             price = price,
             image = image,
-            rating = rating
         )
     }
 }

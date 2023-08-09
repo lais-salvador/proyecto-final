@@ -1,5 +1,6 @@
 package com.example.app_proyecto_final.presentation.detail.customViews
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.util.AttributeSet
 import android.widget.FrameLayout
@@ -23,6 +24,6 @@ class CategoryTagComponent@JvmOverloads constructor(
     }
 
     fun setCategoryText(text: String){
-        textView.text = text
+        textView.text = "Category: +$text"
     }
 }
