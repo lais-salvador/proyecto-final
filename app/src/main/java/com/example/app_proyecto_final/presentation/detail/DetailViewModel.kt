@@ -21,7 +21,7 @@ class DetailViewModel(
             withContext(Dispatchers.IO) {
                 _productFlow.emit(DetailState.Loading)
                 val result = getProductByIdUseCase.invoke(id)
-                if(result.id != "0")
+                if(result.id != "")
                     _productFlow.emit(DetailState.Product(result))
                 else
                     _productFlow.emit(DetailState.Error)

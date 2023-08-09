@@ -29,6 +29,7 @@ fun ListScreen(
     onItemClick: (String) -> Unit
 ) {
     val state = listViewModel.productListFlow.collectAsStateWithLifecycle()
+    listViewModel.getData()
 
     when(state.value) {
         is ListState.ProductList -> {

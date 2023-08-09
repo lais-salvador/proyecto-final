@@ -97,4 +97,14 @@ dependencies {
     // Compose lifecycle
     implementation "androidx.lifecycle:lifecycle-runtime-compose:2.3.1"
     implementation 'androidx.paging:paging-common-ktx:3.1.1'
+
+    // Test
+    testImplementation 'junit:junit:4.13.2'
+    testImplementation 'org.hamcrest:hamcrest:2.2'
+    testImplementation 'androidx.arch.core:core-testing:2.2.0'
+    testImplementation 'org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.1'
+    testImplementation 'io.mockk:mockk:1.13.4'
+
+    //Testing Flows
+    testImplementation 'app.cash.turbine:turbine:1.0.0'
 }

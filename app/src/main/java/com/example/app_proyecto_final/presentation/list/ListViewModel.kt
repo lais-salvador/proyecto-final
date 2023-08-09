@@ -1,6 +1,5 @@
 package com.example.app_proyecto_final.presentation.list
 
-import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.app_proyecto_final.domain.usecase.GetProductListUseCase
@@ -16,10 +15,6 @@ class ListViewModel(
 
     private var _productListFlow =  MutableStateFlow<ListState>(ListState.Idle)
     val productListFlow: StateFlow<ListState> = _productListFlow
-
-    init {
-        getData()
-    }
 
      fun getData() {
         viewModelScope.launch {

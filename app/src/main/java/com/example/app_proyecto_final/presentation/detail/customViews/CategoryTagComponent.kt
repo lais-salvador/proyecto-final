@@ -24,6 +24,6 @@ class CategoryTagComponent@JvmOverloads constructor(
     }
 
     fun setCategoryText(text: String){
-        textView.text = "Category: +$text"
+        textView.text = "Category: $text"
     }
 }

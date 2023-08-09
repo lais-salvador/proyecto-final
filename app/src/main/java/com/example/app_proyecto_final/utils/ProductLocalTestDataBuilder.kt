@@ -1,78 +1,75 @@
 package com.example.app_proyecto_final.utils
 
-import com.example.app_proyecto_final.data.remote.dto.ProductDto
-import com.example.app_proyecto_final.data.remote.dto.RatingDto
+import com.example.app_proyecto_final.data.local.model.ProductLocal
+import com.example.app_proyecto_final.domain.model.ProductModel
 
-class ProductDtoTestDataBuilder {
-    var id: Int? = null
+class ProductLocalTestDataBuilder {
+    var id = ""
     var title = ""
     var description = ""
-    var price = 0.0
+    var price = ""
     var category  = ""
     var image = ""
-    var rating = RatingDto(0.0,0)
     var numElements: Int = 1
 
 
 
-    fun withId(id: Int): ProductDtoTestDataBuilder {
+    fun withId(id: String): ProductLocalTestDataBuilder {
         this.id = id
         return this
     }
 
-    fun withTitle(title: String): ProductDtoTestDataBuilder {
+    fun withTitle(title: String): ProductLocalTestDataBuilder {
         this.title = title
         return this
     }
 
-    fun withDescription(description: String): ProductDtoTestDataBuilder {
+    fun withDescription(description: String): ProductLocalTestDataBuilder {
         this.description = description
         return this
     }
 
-    fun withPrice(price: Double): ProductDtoTestDataBuilder {
+    fun withPrice(price: String): ProductLocalTestDataBuilder {
         this.price = price
         return this
     }
 
-    fun withCategory(category: String): ProductDtoTestDataBuilder {
+    fun withCategory(category: String): ProductLocalTestDataBuilder {
         this.category = category
         return this
     }
 
-    fun withNumElements(numElements: Int): ProductDtoTestDataBuilder {
+    fun withNumElements(numElements: Int): ProductLocalTestDataBuilder {
         this.numElements = numElements
         return this
     }
 
-    fun buildList(): List<ProductDto> {
-        val list = mutableListOf<ProductDto>()
+    fun buildList(): List<ProductLocal> {
+        val list = mutableListOf<ProductLocal>()
 
         for(i in 0 until numElements) {
             list.add(
-                ProductDto(
+                ProductLocal(
                     id = id,
                     title = title,
                     description = description,
                     category = category,
                     price = price,
                     image = image,
-                    rating = rating
                 )
             )
         }
         return list.toList()
     }
 
-    fun buildSingle(): ProductDto {
-        return ProductDto(
+    fun buildSingle(): ProductLocal {
+        return ProductLocal(
             id = id,
             title = title,
             description = description,
             category = category,
             price = price,
             image = image,
-            rating = rating
         )
     }
 }
