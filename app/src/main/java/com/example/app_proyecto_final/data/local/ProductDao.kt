@@ -4,7 +4,6 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import androidx.room.Update
 import com.example.app_proyecto_final.data.local.model.ProductLocal
 
 @Dao
@@ -20,4 +19,7 @@ interface ProductDao {
 
     @Query("UPDATE ProductTable SET favorite=:isFavorite WHERE id=:productId")
     suspend fun updateProduct(isFavorite: Boolean, productId: String);
+
+    @Query("SELECT * FROM ProductTable WHERE favorite=1")
+    suspend fun getFavoriteList(): List<ProductLocal>
 }

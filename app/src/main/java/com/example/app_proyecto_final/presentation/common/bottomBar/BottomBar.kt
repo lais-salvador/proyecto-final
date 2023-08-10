@@ -9,20 +9,22 @@ import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavController
 import androidx.navigation.compose.currentBackStackEntryAsState
+import com.example.app_proyecto_final.R
 import com.example.app_proyecto_final.navigation.Screen
 
 @Composable
 fun BottomBar(navController: NavController) {
     val bottomNavItems = listOf(
         BottomNavItem(
-            name = "Productos",
+            name = stringResource(id = R.string.list_screen_title),
             route = Screen.ListScreen.route,
-            icon = Icons.Default.Home,
+            icon = Icons.Default.Home
         ),
         BottomNavItem(
-            name = "Favoritos",
+            name = stringResource(id = R.string.favorite_screen_title),
             route = Screen.FavoriteScreen.route,
             icon = Icons.Default.Favorite,
         )
@@ -47,7 +49,7 @@ fun BottomBar(navController: NavController) {
                 icon = {
                     Icon(
                         imageVector = item.icon,
-                        contentDescription = "${item.name} Icon",
+                        contentDescription = stringResource(id = R.string.icon_menu_content_description, item.name),
                     )
                 }
             )

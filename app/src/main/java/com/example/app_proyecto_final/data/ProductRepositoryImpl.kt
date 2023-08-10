@@ -31,4 +31,7 @@ class ProductRepositoryImpl(
         isFavorite: Boolean,
         productId: String
     ): Boolean = localDataSource.updateFavoriteStateOfProduct(isFavorite, productId)
+
+    override suspend fun getFavoriteList(): List<ProductModel> = localDataSource.getFavoriteList().map { it.toProductModel() }
+
 }

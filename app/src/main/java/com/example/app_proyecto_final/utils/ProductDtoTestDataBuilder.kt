@@ -4,16 +4,14 @@ import com.example.app_proyecto_final.data.remote.dto.ProductDto
 import com.example.app_proyecto_final.data.remote.dto.RatingDto
 
 class ProductDtoTestDataBuilder {
-    var id: Int? = null
-    var title = ""
-    var description = ""
-    var price = 0.0
-    var category  = ""
-    var image = ""
-    var rating = RatingDto(0.0,0)
-    var numElements: Int = 1
-
-
+    private var id: Int? = null
+    private var title = ""
+    private var description = ""
+    private var price = 0.0
+    private var category  = ""
+    private var image = ""
+    private var rating = RatingDto(0.0,0)
+    private var numElements: Int = 1
 
     fun withId(id: Int): ProductDtoTestDataBuilder {
         this.id = id

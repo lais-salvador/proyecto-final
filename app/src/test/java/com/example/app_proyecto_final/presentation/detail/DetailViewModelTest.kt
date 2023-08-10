@@ -3,6 +3,7 @@ package com.example.app_proyecto_final.presentation.detail
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import app.cash.turbine.test
 import com.example.app_proyecto_final.domain.usecase.GetProductByIdUseCase
+import com.example.app_proyecto_final.domain.usecase.UpdateFavoriteStateOfProductUseCase
 import com.example.app_proyecto_final.testutil.DefaultDispatcherRule
 import com.example.app_proyecto_final.utils.ProductModelTestDataBuilder
 import io.mockk.MockKAnnotations
@@ -24,6 +25,9 @@ class DetailViewModelTest{
     @MockK(relaxed = true)
     private lateinit var getProductByIdUseCase: GetProductByIdUseCase
 
+    @MockK(relaxed = true)
+    private lateinit var getFavoriteStateOfProductUseCase: UpdateFavoriteStateOfProductUseCase
+
 
     @Before
     fun setup(){
@@ -38,7 +42,7 @@ class DetailViewModelTest{
 
         coEvery { getProductByIdUseCase.invoke("1") } returns product
 
-        val detailViewModel = DetailViewModel(getProductByIdUseCase)
+        val detailViewModel = DetailViewModel(getProductByIdUseCase, getFavoriteStateOfProductUseCase)
 
         detailViewModel.productFlow.test{
             detailViewModel.getProductData("1")
@@ -55,7 +59,7 @@ class DetailViewModelTest{
 
         coEvery { getProductByIdUseCase.invoke("") } returns product
 
-        val detailViewModel = DetailViewModel(getProductByIdUseCase)
+        val detailViewModel = DetailViewModel(getProductByIdUseCase, getFavoriteStateOfProductUseCase)
 
         detailViewModel.productFlow.test{
             detailViewModel.getProductData("")

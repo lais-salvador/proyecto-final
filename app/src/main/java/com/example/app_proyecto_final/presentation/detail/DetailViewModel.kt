@@ -1,7 +1,6 @@
 package com.example.app_proyecto_final.presentation.detail
 
 import android.util.Log
-import android.widget.Toast
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.app_proyecto_final.domain.usecase.GetProductByIdUseCase

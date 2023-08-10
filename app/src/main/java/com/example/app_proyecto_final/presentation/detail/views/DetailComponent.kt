@@ -1,8 +1,10 @@
 package com.example.app_proyecto_final.presentation.detail.views
 
+import android.annotation.SuppressLint
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -54,33 +56,18 @@ import com.example.app_proyecto_final.ui.theme.Dimens
 import kotlinx.coroutines.job
 
 val requester = FocusRequester()
+@SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun DetailComponent(
     product: ProductModel,
-    onBack: () -> Unit,
-    onFavorite: (isFavorite: Boolean) -> Unit
+    onFavorite: (isFavorite: Boolean) -> Unit,
+    paddingValues: PaddingValues
 ) {
     Scaffold(
-        topBar = {
-            TopAppBar(
-                title = {
-                    Text(stringResource(id = R.string.detail_screen_title))
-                },
-                modifier = Modifier.statusBarsPadding(),
-                navigationIcon = {
-                    IconButton(onClick = onBack) {
-                        Icon(
-                            Icons.Filled.ArrowBack,
-                            contentDescription = stringResource(id = R.string.back_content_description)
-                        )
-                    }
-                }
-            )
-        },
         floatingActionButton = {
             var added by remember {
-                mutableStateOf(false)
+                mutableStateOf(product.favorite)
             }
             FloatingActionButton(
                 onClick = {
@@ -95,10 +82,10 @@ fun DetailComponent(
             }
         },
         floatingActionButtonPosition = FabPosition.End,
-    ) { padding ->
+    ) {
         Column(
             modifier = Modifier
-                .padding(padding)
+                .padding(paddingValues)
                 .padding(horizontal = Dimens.PaddingNormal)
                 .padding(vertical = Dimens.headerMargin)
                 .fillMaxSize()

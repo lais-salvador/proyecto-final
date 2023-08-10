@@ -3,14 +3,14 @@ package com.example.app_proyecto_final.utils
 import com.example.app_proyecto_final.data.local.model.ProductLocal
 
 class ProductLocalTestDataBuilder {
-    var id = ""
-    var title = ""
-    var description = ""
-    var price = ""
-    var category  = ""
-    var image = ""
-    var numElements: Int = 1
-    var favorite = false
+    private var id = ""
+    private var title = ""
+    private var description = ""
+    private var price = ""
+    private var category  = ""
+    private var image = ""
+    private var numElements: Int = 1
+    private var favorite = false
 
     fun withId(id: String): ProductLocalTestDataBuilder {
         this.id = id

@@ -1,5 +1,6 @@
 package com.example.app_proyecto_final.presentation.detail.views
 
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.res.stringResource
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
@@ -13,10 +14,9 @@ import org.koin.androidx.compose.koinViewModel
 @Composable
 fun DetailScreen(
     id: String,
+    paddingValues: PaddingValues,
     detailViewModel: DetailViewModel= koinViewModel(),
-    onBack: () -> Unit
 ) {
-
     val state = detailViewModel.productFlow.collectAsStateWithLifecycle()
 
     detailViewModel.getProductData(id)
@@ -25,10 +25,10 @@ fun DetailScreen(
         is DetailState.Product -> {
             DetailComponent(
                 product = (state.value as DetailState.Product).product,
-                onBack = onBack,
                 onFavorite = { success ->
                     detailViewModel.updateFavoriteState(success, id)
-                }
+                },
+                paddingValues = paddingValues
             )
         }
         is DetailState.Idle -> {}

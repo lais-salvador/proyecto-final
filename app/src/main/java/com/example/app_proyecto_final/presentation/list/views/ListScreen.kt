@@ -1,5 +1,6 @@
 package com.example.app_proyecto_final.presentation.list.views
 
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.res.stringResource
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
@@ -14,7 +15,8 @@ import org.koin.androidx.compose.koinViewModel
 @Composable
 fun ListScreen(
     listViewModel: ListViewModel = koinViewModel(),
-    onItemClick: (String) -> Unit
+    paddingValues: PaddingValues,
+    onItemClick: (String) -> Unit,
 ) {
     val state = listViewModel.productListFlow.collectAsStateWithLifecycle()
     listViewModel.getData()
@@ -23,7 +25,8 @@ fun ListScreen(
         is ListState.ProductList -> {
             ListComponent(
                 productList = (state.value as ListState.ProductList).productList,
-                onItemClick = onItemClick
+                onItemClick = onItemClick,
+                paddingValues = paddingValues
             )
         }
         is ListState.Idle -> {}

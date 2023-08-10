@@ -3,13 +3,13 @@ package com.example.app_proyecto_final.utils
 import com.example.app_proyecto_final.domain.model.ProductModel
 
 class ProductModelTestDataBuilder {
-    var id = ""
-    var title = ""
-    var description = ""
-    var price = ""
-    var category  = ""
-    var image = ""
-    var numElements: Int = 1
+    private var id = ""
+    private var title = ""
+    private var description = ""
+    private var price = ""
+    private var category  = ""
+    private var image = ""
+    private var numElements: Int = 1
 
 
 

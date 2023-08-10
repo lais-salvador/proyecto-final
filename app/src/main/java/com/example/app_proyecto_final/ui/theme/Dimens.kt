@@ -9,9 +9,6 @@ object Dimens {
     val PaddingSmall: Dp
         @Composable get() = dimensionResource(R.dimen.padding_small)
 
-    val PaddingExtraSmall: Dp
-        @Composable get() = dimensionResource(R.dimen.padding_extra_small)
-
     val PaddingNormal: Dp
         @Composable get() = dimensionResource(R.dimen.padding_normal)
 
@@ -26,12 +23,6 @@ object Dimens {
 
     val CardDetailHeight: Dp
         @Composable get() = dimensionResource(R.dimen.card_detail_height)
-
-    val CardWidth: Dp
-        @Composable get() = dimensionResource(R.dimen.card_width)
-
-    val CardHeight: Dp
-        @Composable get() = dimensionResource(R.dimen.card_height)
 
     val listItemImageHeight: Dp
         @Composable get() = dimensionResource(R.dimen.list_item_image_height)

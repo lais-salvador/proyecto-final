@@ -40,4 +40,14 @@ class LocalDataSourceImpl(
         return success
     }
 
+    override suspend fun getFavoriteList(): List<ProductLocal> {
+        var productList = emptyList<ProductLocal>()
+
+        try{
+            productList = productDao.getFavoriteList()
+        }catch (t: Throwable){ }
+
+        return productList
+    }
+
 }
