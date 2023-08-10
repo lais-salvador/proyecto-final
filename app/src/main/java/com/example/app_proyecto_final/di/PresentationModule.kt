@@ -8,5 +8,4 @@ import org.koin.dsl.module
 val PresentationModule = module {
     viewModel { ListViewModel(get()) }
     viewModel { DetailViewModel(get()) }
-
 }

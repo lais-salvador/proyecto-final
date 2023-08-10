@@ -1,13 +1,9 @@
 package com.example.app_proyecto_final.presentation.detail.customViews
 
-import android.annotation.SuppressLint
 import android.content.Context
 import android.util.AttributeSet
 import android.widget.FrameLayout
 import android.widget.TextView
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.ui.res.colorResource
-import androidx.core.content.ContextCompat
 import com.example.app_proyecto_final.R
 
 class CategoryTagComponent@JvmOverloads constructor(
@@ -24,6 +20,6 @@ class CategoryTagComponent@JvmOverloads constructor(
     }
 
     fun setCategoryText(text: String){
-        textView.text = "Category: $text"
+        textView.text = resources.getString(R.string.category_content, text)
     }
 }

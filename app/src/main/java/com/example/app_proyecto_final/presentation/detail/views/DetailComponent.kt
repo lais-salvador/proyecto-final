@@ -81,9 +81,8 @@ fun DetailComponent(
         ){
             Text(
                 text = product.title,
-                fontSize = 22.sp,
-                fontWeight = FontWeight.Bold,
-                maxLines = 2
+                maxLines = 2,
+                style = MaterialTheme.typography.bodyLarge
             )
 
             ElevatedCard(
@@ -101,7 +100,7 @@ fun DetailComponent(
                         .data(product.image)
                         .size(Size.ORIGINAL)
                         .build(),
-                    contentDescription = stringResource(id =  R.string.detail_image_cotent_description, product.title),
+                    contentDescription = stringResource(id =  R.string.detail_image_content_description, product.title),
                     modifier = Modifier
                         .fillMaxSize()
                         .focusRequester(focusRequester = requester),
@@ -111,14 +110,14 @@ fun DetailComponent(
 
             Text(
                 text = product.price,
-                fontWeight = FontWeight.Bold,
-                fontSize = 22.sp
+                style = MaterialTheme.typography.bodyLarge
             )
 
+            val contentDescriptionCategoryText = stringResource(id =  R.string.category_tag_content_description, product.title)
             AndroidView(
                 modifier = Modifier
                     .semantics {
-                        contentDescription = "Categoría producto, ${product.category}"
+                        contentDescription = contentDescriptionCategoryText
                     },
                 factory = { context ->
                     CategoryTagComponent(context).apply {

@@ -1,5 +1,4 @@
 package com.example.app_proyecto_final.data.remote.dto
-import android.icu.text.CaseMap.Title
 import com.squareup.moshi.Json
 
 data class ProductDto(

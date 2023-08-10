@@ -7,5 +7,6 @@
     <string name="category_tag_content_description">Categoría del producto, %s</string>
     <string name="detail_image_content_description">Imagen del producto, %s</string>
     <string name="card_content_description">Imagen del producto, %s</string>
+    <string name="category_content">Categoría: %s</string>
 
 </resources>
