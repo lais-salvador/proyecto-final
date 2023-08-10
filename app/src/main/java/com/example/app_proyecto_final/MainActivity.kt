@@ -53,7 +53,9 @@ class MainActivity : ComponentActivity() {
 fun showBottomBar(currentRoute: String?): Boolean =
     when (currentRoute) {
         Screen.DetailScreen.route+"/{productId}" -> false
-        else -> true
+        Screen.ListScreen.route -> true
+        Screen.FavoriteScreen.route -> true
+        else -> false
     }
 @Composable
 fun SelectTopBar(currentRoute: String?, navController: NavController) {
@@ -80,11 +82,6 @@ fun SelectTopBar(currentRoute: String?, navController: NavController) {
                 text = favoriteScreenTitle
             )
         }
-        else -> {
-            TopBar(showBackIcon = false,
-                onBack = {},
-                text = listScreenTitle
-            )
-        }
+        else -> {}
     }
 }

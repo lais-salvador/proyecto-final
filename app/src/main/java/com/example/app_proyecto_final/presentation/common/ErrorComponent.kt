@@ -22,14 +22,15 @@ fun ErrorComponent(onClick: () -> Unit, error: String) {
     Column(
         modifier = Modifier
             .background(MaterialTheme.colorScheme.background)
-            .padding(Dimens.PaddingNormal)
+            .padding(Dimens.PaddingSmall)
             .fillMaxSize()
         ,
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center,
     ) {
         Text(
-            text = error
+            text = error,
+            style = MaterialTheme.typography.labelSmall
         )
         Spacer(modifier = Modifier.height(Dimens.PaddingNormal))
         Button(onClick = onClick) {
