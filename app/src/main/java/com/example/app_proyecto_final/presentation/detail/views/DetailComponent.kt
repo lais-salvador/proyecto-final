@@ -112,11 +112,6 @@ fun DetailComponent(
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.SpaceBetween
             ) {
-                Text(
-                    text = product.price,
-                    style = MaterialTheme.typography.titleLarge,
-                )
-
                 val contentDescriptionCategoryText = stringResource(id =  R.string.category_tag_content_description, product.title)
                 AndroidView(
                     modifier = Modifier
@@ -128,6 +123,11 @@ fun DetailComponent(
                             this.setCategoryText(product.category)
                         }
                     }
+                )
+
+                Text(
+                    text = product.price,
+                    style = MaterialTheme.typography.titleLarge,
                 )
             }
 
