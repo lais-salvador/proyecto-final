@@ -4,7 +4,6 @@ import android.content.Context
 import android.util.AttributeSet
 import android.widget.FrameLayout
 import android.widget.TextView
-import androidx.compose.ui.res.colorResource
 import com.example.app_proyecto_final.R
 
 class CategoryTagComponent@JvmOverloads constructor(

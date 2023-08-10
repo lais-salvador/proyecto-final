@@ -1,7 +1,6 @@
 package com.example.app_proyecto_final.utils
 
 import com.example.app_proyecto_final.data.local.model.ProductLocal
-import com.example.app_proyecto_final.domain.model.ProductModel
 
 class ProductLocalTestDataBuilder {
     var id = ""
