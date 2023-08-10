@@ -19,4 +19,9 @@ sealed class Screen(val route: String, val arguments: List<NamedNavArgument>) {
             }
         )
     )
+
+    object FavoriteScreen: Screen(
+        route = "favorite",
+        arguments = emptyList()
+    )
 }

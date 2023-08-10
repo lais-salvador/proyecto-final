@@ -6,4 +6,6 @@ interface ProductRepository {
     suspend fun getProductList(): List<ProductModel>
 
     suspend fun getProductById(id: String): ProductModel
+
+    suspend fun updateFavoriteStateOfProduct(isFavorite: Boolean, productId: String): Boolean
 }

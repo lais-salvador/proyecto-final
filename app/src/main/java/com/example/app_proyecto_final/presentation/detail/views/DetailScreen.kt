@@ -25,7 +25,10 @@ fun DetailScreen(
         is DetailState.Product -> {
             DetailComponent(
                 product = (state.value as DetailState.Product).product,
-                onBack = onBack
+                onBack = onBack,
+                onFavorite = { success ->
+                    detailViewModel.updateFavoriteState(success, id)
+                }
             )
         }
         is DetailState.Idle -> {}

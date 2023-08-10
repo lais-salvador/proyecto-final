@@ -25,4 +25,19 @@ class LocalDataSourceImpl(
 
         return product
     }
+
+    override suspend fun updateFavoriteStateOfProduct(
+        isFavorite: Boolean,
+        productId: String
+    ): Boolean {
+        var success = false
+
+        try{
+            productDao.updateProduct(isFavorite, productId)
+            success = true
+        }catch (t: Throwable){ }
+
+        return success
+    }
+
 }

@@ -10,4 +10,5 @@ fun ProductLocal.toProductModel(): ProductModel = ProductModel(
     image = image,
     price = price,
     category = category,
+    favorite = favorite
 )

@@ -26,4 +26,9 @@ class ProductRepositoryImpl(
     override suspend fun getProductById(id: String): ProductModel {
         return localDataSource.getProductById(id).toProductModel()
     }
+
+    override suspend fun updateFavoriteStateOfProduct(
+        isFavorite: Boolean,
+        productId: String
+    ): Boolean = localDataSource.updateFavoriteStateOfProduct(isFavorite, productId)
 }

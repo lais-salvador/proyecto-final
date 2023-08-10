@@ -14,6 +14,7 @@ fun ProductDto.toProductModel() = ProductModel(
         formatPrice(it)
     } ?: "",
     category = category ?: "",
+    favorite = false
 )
 
 fun ProductDto.toProductLocal() = ProductLocal(
@@ -25,6 +26,7 @@ fun ProductDto.toProductLocal() = ProductLocal(
         formatPrice(it)
     } ?: "",
     category = category ?: "",
+    favorite = false
 )
 
 private fun formatPrice(number: Double): String {

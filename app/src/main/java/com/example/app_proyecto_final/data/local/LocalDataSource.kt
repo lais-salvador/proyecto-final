@@ -6,4 +6,5 @@ interface LocalDataSource {
     suspend fun insertProductList(heroList: List<ProductLocal>)
     suspend fun getProductList() : List<ProductLocal>
     suspend fun getProductById(id: String) : ProductLocal
+    suspend fun updateFavoriteStateOfProduct(isFavorite: Boolean, productId: String): Boolean
 }

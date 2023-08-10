@@ -7,4 +7,6 @@
     <string name="category_tag_content_description">Categoría del producto, %s</string>
     <string name="detail_image_content_description">Imagen del producto, %s</string>
     <string name="card_content_description">Imagen del producto, %s</string>
+    <string name="back_content_description">Volver al listado de productos</string>
+    <string name="favorite_content_description">Añadir a favoritos el producto %s</string>
 </resources>

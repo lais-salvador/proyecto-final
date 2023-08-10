@@ -4,6 +4,7 @@ import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
 import com.example.app_proyecto_final.presentation.detail.views.DetailScreen
+import com.example.app_proyecto_final.presentation.favorite.views.FavoriteScreen
 import com.example.app_proyecto_final.presentation.list.views.ListScreen
 
 
@@ -24,5 +25,11 @@ fun NavGraphBuilder.addDetailScreen(navController: NavController) {
         DetailScreen(id = id) {
             navController.popBackStack()
         }
+    }
+}
+
+fun NavGraphBuilder.addFavoriteScreen(){
+    composable(Screen.FavoriteScreen.route){
+        FavoriteScreen()
     }
 }

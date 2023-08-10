@@ -68,7 +68,7 @@ private fun getDatabase(context: Context) : ProductDataBase =
     Room.databaseBuilder(
         context,
         ProductDataBase::class.java, "product-db"
-    ).build()
+    ).fallbackToDestructiveMigration().build()
 
 private fun providesProductDao(db: ProductDataBase) : ProductDao =
     db.productLocalDao()

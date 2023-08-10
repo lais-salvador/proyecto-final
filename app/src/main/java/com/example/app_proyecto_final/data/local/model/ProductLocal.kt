@@ -12,4 +12,5 @@ class ProductLocal (
     @ColumnInfo(name = "price") val price: String,
     @ColumnInfo(name = "category") val category: String,
     @ColumnInfo(name = "image") val image: String,
+    @ColumnInfo(name = "favorite") val favorite: Boolean
     )

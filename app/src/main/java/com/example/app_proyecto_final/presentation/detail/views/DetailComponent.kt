@@ -14,17 +14,26 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material.icons.filled.Favorite
+import androidx.compose.material.icons.filled.FavoriteBorder
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.FabPosition
+import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.FocusRequester
@@ -49,7 +58,8 @@ val requester = FocusRequester()
 @Composable
 fun DetailComponent(
     product: ProductModel,
-    onBack: () -> Unit
+    onBack: () -> Unit,
+    onFavorite: (isFavorite: Boolean) -> Unit
 ) {
     Scaffold(
         topBar = {
@@ -62,12 +72,29 @@ fun DetailComponent(
                     IconButton(onClick = onBack) {
                         Icon(
                             Icons.Filled.ArrowBack,
-                            contentDescription = null
+                            contentDescription = stringResource(id = R.string.back_content_description)
                         )
                     }
                 }
             )
-        }
+        },
+        floatingActionButton = {
+            var added by remember {
+                mutableStateOf(false)
+            }
+            FloatingActionButton(
+                onClick = {
+                    added = !added
+                    onFavorite(added)
+                },
+            ) {
+                Icon(
+                    imageVector = if(added) Icons.Default.Favorite else Icons.Default.FavoriteBorder,
+                    contentDescription = stringResource(id = R.string.favorite_content_description, product.title)
+                )
+            }
+        },
+        floatingActionButtonPosition = FabPosition.End,
     ) { padding ->
         Column(
             modifier = Modifier

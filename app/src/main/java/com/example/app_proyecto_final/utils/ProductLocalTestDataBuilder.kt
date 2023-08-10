@@ -10,8 +10,7 @@ class ProductLocalTestDataBuilder {
     var category  = ""
     var image = ""
     var numElements: Int = 1
-
-
+    var favorite = false
 
     fun withId(id: String): ProductLocalTestDataBuilder {
         this.id = id
@@ -43,6 +42,11 @@ class ProductLocalTestDataBuilder {
         return this
     }
 
+    fun withFavorite(favorite: Boolean): ProductLocalTestDataBuilder {
+        this.favorite = favorite
+        return this
+    }
+
     fun buildList(): List<ProductLocal> {
         val list = mutableListOf<ProductLocal>()
 
@@ -55,6 +59,7 @@ class ProductLocalTestDataBuilder {
                     category = category,
                     price = price,
                     image = image,
+                    favorite = favorite
                 )
             )
         }
@@ -69,6 +74,7 @@ class ProductLocalTestDataBuilder {
             category = category,
             price = price,
             image = image,
+            favorite = favorite
         )
     }
 }

@@ -55,6 +55,7 @@ class ProductModelTestDataBuilder {
                     category = category,
                     price = price,
                     image = image,
+                    favorite = false
                 )
             )
         }
@@ -69,6 +70,7 @@ class ProductModelTestDataBuilder {
             category = category,
             price = price,
             image = image,
+            favorite = false
         )
     }
 }
