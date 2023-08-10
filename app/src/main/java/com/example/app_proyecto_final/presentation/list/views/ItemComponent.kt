@@ -3,6 +3,7 @@ package com.example.app_proyecto_final.presentation.list.views
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -59,7 +60,7 @@ fun ItemComponent(
         }
 
         Column(
-            modifier = Modifier.padding(Dimens.PaddingSmall)
+            modifier = Modifier.padding(Dimens.PaddingSmall),
         ) {
             Text(
                 text = product.title,
@@ -67,15 +68,18 @@ fun ItemComponent(
                 style = MaterialTheme.typography.bodyLarge,
                 overflow = TextOverflow.Ellipsis
             )
+            Spacer(modifier = Modifier.height(Dimens.PaddingNormal))
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.End
+            ) {
+                Text(
+                    text = product.price,
+                    style = MaterialTheme.typography.labelSmall,
+                    maxLines = 1,
+                )
+            }
 
-            Text(
-                text = product.price,
-                style = MaterialTheme.typography.labelSmall,
-                maxLines = 1,
-            )
         }
-
-
-
     }
 }

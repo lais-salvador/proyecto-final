@@ -1,11 +1,13 @@
 package com.example.app_proyecto_final.presentation.detail.views
 
-import android.widget.ScrollView
+import android.util.Log
 import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.statusBarsPadding
@@ -24,6 +26,7 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.focus.focusRequester
@@ -32,9 +35,6 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
-import androidx.compose.ui.semantics.stateDescription
-import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.unit.sp
 import androidx.compose.ui.viewinterop.AndroidView
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
@@ -82,7 +82,7 @@ fun DetailComponent(
             Text(
                 text = product.title,
                 maxLines = 2,
-                style = MaterialTheme.typography.bodyLarge
+                style = MaterialTheme.typography.titleLarge
             )
 
             ElevatedCard(
@@ -108,28 +108,35 @@ fun DetailComponent(
                 )
             }
 
-            Text(
-                text = product.price,
-                style = MaterialTheme.typography.bodyLarge
-            )
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.SpaceBetween
+            ) {
+                Text(
+                    text = product.price,
+                    style = MaterialTheme.typography.titleLarge,
+                )
 
-            val contentDescriptionCategoryText = stringResource(id =  R.string.category_tag_content_description, product.title)
-            AndroidView(
-                modifier = Modifier
-                    .semantics {
-                        contentDescription = contentDescriptionCategoryText
-                    },
-                factory = { context ->
-                    CategoryTagComponent(context).apply {
-                        this.setCategoryText(product.category)
+                val contentDescriptionCategoryText = stringResource(id =  R.string.category_tag_content_description, product.title)
+                AndroidView(
+                    modifier = Modifier
+                        .semantics {
+                            contentDescription = contentDescriptionCategoryText
+                        },
+                    factory = { context ->
+                        CategoryTagComponent(context).apply {
+                            this.setCategoryText(product.category)
+                        }
                     }
-                }
-            )
+                )
+            }
 
             Spacer(modifier = Modifier.height(Dimens.PaddingNormal))
 
             Text(
                 text = product.description,
+                style = MaterialTheme.typography.bodyMedium,
             )
         }
     }
