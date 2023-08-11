@@ -3,6 +3,7 @@ package com.example.app_proyecto_final.presentation.detail.views
 import android.annotation.SuppressLint
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
@@ -11,25 +12,17 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.FavoriteBorder
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ElevatedCard
-import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.FabPosition
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.NavigationBar
-import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -57,32 +50,13 @@ import kotlinx.coroutines.job
 
 val requester = FocusRequester()
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun DetailComponent(
     product: ProductModel,
     onFavorite: (isFavorite: Boolean) -> Unit,
     paddingValues: PaddingValues
 ) {
-    Scaffold(
-        floatingActionButton = {
-            var added by remember {
-                mutableStateOf(product.favorite)
-            }
-            FloatingActionButton(
-                onClick = {
-                    added = !added
-                    onFavorite(added)
-                },
-            ) {
-                Icon(
-                    imageVector = if(added) Icons.Default.Favorite else Icons.Default.FavoriteBorder,
-                    contentDescription = stringResource(id = R.string.favorite_content_description, product.title)
-                )
-            }
-        },
-        floatingActionButtonPosition = FabPosition.End,
-    ) {
+    Box() {
         Column(
             modifier = Modifier
                 .padding(paddingValues)
@@ -150,6 +124,22 @@ fun DetailComponent(
             Text(
                 text = product.description,
                 style = MaterialTheme.typography.bodyMedium,
+            )
+        }
+
+        var added by remember {
+            mutableStateOf(product.favorite)
+        }
+        FloatingActionButton(
+            modifier = Modifier.align(Alignment.BottomEnd).padding(Dimens.PaddingNormal),
+            onClick = {
+                added = !added
+                onFavorite(added)
+            },
+        ) {
+            Icon(
+                imageVector = if(added) Icons.Default.Favorite else Icons.Default.FavoriteBorder,
+                contentDescription = stringResource(id = R.string.favorite_content_description, product.title)
             )
         }
     }
